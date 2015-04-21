@@ -20,7 +20,41 @@ parser.add_argument('-o', '--output_dir', required=True,
 def main():
     args = parser.parse_args()
 
+    output_seqs = {}
+    output_descriptors = {}
+    for entry in open(args.input_fp, 'U'):
+        ID = parse_ID(entry)
+        tax = parse_taxonomy(entry)
+        seq = parse_sequence(entry)
+        if tax_filt(tax, number_levels) and seq_filt(seq, length_min):
+            output_seqs[ID] = seq
+            output_descriptors[ID] = tax
 
+
+
+def parse_ID(line):
+    pass
+
+
+def parse_taxonomy(line):
+    # include formatting
+    pass
+
+
+def parse_sequence(line):
+    pass
+
+
+def tax_filt(tax):
+    pass
+
+
+def seq_filt(seq):
+    pass
+
+
+def format_taxonomy(tax):
+    pass
 
 
 if __name__ == "__main__":

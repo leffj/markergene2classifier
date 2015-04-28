@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-__author__ = 'Jonathan Leff'
+__author__ = 'Jonathan Leff, Anne A. Madden, and Albert Barberan'
 __email__ = 'jonthan.leff@colorado.edu'
 __version__ = ''
 
@@ -33,8 +33,8 @@ def main():
 
 
 def parse_ID(line):
-    pass
-
+    columns = line.rstrip("\n").split("\t")
+    return = columns[0]
 
 def parse_taxonomy(line):
     columns = line.rstrip("\n").split("\t")
@@ -50,19 +50,30 @@ def parse_taxonomy(line):
 
 
 def parse_sequence(line):
-    pass
-
+    columns = line.rstrip("\n").split("\t")
+    Nuc_Seq = columns[42]
+    if Nuc_Seq.strip() == "":
+        return "NA"
+    else:
+        return Nuc_Seq
 
 def tax_filt(tax):
     pass
-
+	#Remove non-ASCII characters
+	#Remove strings not resolved to the correct levels (user defined)
+	#Remove/replace white spaces from species (etc.)
 
 def seq_filt(seq):
     pass
-
+	#Remove hyphens
+	#Force uppercase. 
+	#Remove seqs that contain more than ATCG
+	#Remove seqs that are too short
+	#Remove seqs that are "NA"
 
 def format_taxonomy(tax):
     pass
+	
 
 
 if __name__ == "__main__":

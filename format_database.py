@@ -33,7 +33,9 @@ def main():
 
 
 def parse_ID(line):
-    pass
+    if not line.startswith("processid"):
+        columns = line.rstrip("\n").split("\t")
+        return columns[0]
 
 
 def parse_taxonomy(line):
@@ -42,7 +44,15 @@ def parse_taxonomy(line):
 
 
 def parse_sequence(line):
-    pass
+    if not line.startswith("processid"):
+        columns = line.rstrip("\n").spit("\t")
+        Nuc_Seq = columns[42]
+        if Nuc_Seq =="":
+            return "NA"
+        if Nuc_Seq == " ":
+            return "NA"
+        else:
+            return Nuc_Seq                                                                         
 
 
 def tax_filt(tax):

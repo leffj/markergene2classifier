@@ -37,8 +37,16 @@ def parse_ID(line):
 
 
 def parse_taxonomy(line):
-    # include formatting
-    pass
+    columns = line.rstrip("\n").split("\t")
+    phylum = columns[8]
+    classes = columns[10]
+    order = columns[12]
+    family = columns[14]
+    subfamily = columns[16]
+    genus = columns[18]
+    species = columns[20]
+    taxonomy_string = "p__" + phylum + ";c__" + classes + ";o__" + order + ";f__" + family + ";sf__" + subfamily + ";g__" + genus + ";s__" + species
+    return taxonomy_string
 
 
 def parse_sequence(line):

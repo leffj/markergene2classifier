@@ -4,7 +4,7 @@ MAGIC-DS
 
 This software takes  sequence and taxonomy information from a database 
 and reformats and filters them to create a custom
-database for use in retraining the naive Baysian hierarchical classifier, such 
+database for use in retraining the naive Bayesian hierarchical classifier, such 
 as RDP. The current version is appropriate for use with entries from the 
 Bar Code of Life database.
 
@@ -33,7 +33,7 @@ User defined parameters:
 	
 -n	number of taxa. 
 	(default: 7)
-	Options: 1-7
+	Options: 1-7+ check newest version of RDP
 	Number of taxonomic levels to include in string. Note: older versions of RDP require
 	fewer levels.
 
@@ -58,6 +58,7 @@ User defined parameters:
 	default: False
 	Note, dereplicating entries can increase the processing speed of the RDP classifier.
 	This will only dereplicate if the nucleotide sequence and taxonomic string are identical
+	#The newest version of RDP is slowed down by unique taxa names, not numbers of seqs, so this may be less important
 
 -r finest taxonomic resolution to include
 	(default: Phylum)
@@ -67,7 +68,7 @@ User defined parameters:
 	
 -x Initial database
 	(default: BOLD)
-	options: BOLD, GenBank...?
+	options: BOLD, GenBank, MOOREA BIOCODE...?
 	
 Example Call:
 MAGIC-DS -i /Users/JaneSmith/bold_2.tsv -o /Users/JaneSmith/ -n 6 -t Phylum, Order, Class, 
@@ -87,4 +88,10 @@ Add references for BOLD
 
 How to cite this software...
 
-Include wrapper for standalone RDP?
+Include wrapper for standalone RDP? The newest version of RDP contains a really good error checker for custom databases too.
+
+Thoughts on how to publish:
+There's already a body of literature on how a hierarchical classifier is better than a flat classifier. Maybe we survey 
+the last X years of publications on COI studies on environemntal samples and see what methods they used. Then we could take at
+least a subset and rerun the taxa analysis and see if it provides data more amenable for community analysis. We should think 
+about if we want to evaluate computational time savings, versus (or in conjunction) with accuracy of assignment. 
